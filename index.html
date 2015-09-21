@@ -44,14 +44,15 @@
                         <option value="Northwest">Northwest</option>
                     </select>
 
-                    <select class="form-control" ng-model="query.price">
-                        <option value="">Select price</label>
+                    <select class="form-control" ng-model="search.price">
+                        <option value=false>Select price</label>
                         <option value="$">$</option>
                         <option value="$$">$$</option>
                         <option value="$$$">$$$</option>
                         <option value="$$$$">$$$$</option>
                         <option value="$$$$$">$$$$$</option>
                     </select>
+                    <input type="checkbox" ng-model="strict">Exact match
                 </form>
             </div>
         </div>
@@ -61,7 +62,7 @@
                 <h2 ng-show="restaurants.length && filtered.length">Restaurants List</h2>
                 <h2 ng-show="restaurants.length && !filtered.length">No matches</h2>
                 <ul>
-                    <li ng-repeat="item in filtered = (restaurants | filter:query)">
+                    <li ng-repeat="item in filtered = (restaurants | filter:query | filter:search:true)">
                         <span ng-click="editing = true" ng-hide="editing">
                             {{item.name}} <a ng-click="deleteRestaurant(item)">Delete</a>
                             <ul>
