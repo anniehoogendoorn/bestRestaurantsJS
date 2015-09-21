@@ -13,28 +13,49 @@
 
 <body>
     <div class="container" ng-controller="RestaurantsCtrl">
+
         <div class="row" ng-show="restaurants.length">
-            <div class="col-md-12">
+            <div class="col-xs-6 col-sm-5 col-md-4">
                 <h4>Search Restaurants</h4>
-                <form class="form-inline" role="form">
+                <form role="form">
                     <div class="form-group">
                         <input ng-model="query.$" type="text" class="form-control" id="restaurant" placeholder="Search All">
                     </div>
                     <div class="form-group">
                         <input ng-model="query.name" type="text" class="form-control" id="restaurant-name" placeholder="Search by Name">
                     </div>
-                    <div class="form-group">
-                        <input ng-model="query.food" type="text" class="form-control" id="restaurant-food" placeholder="Search by Cuisine">
-                    </div>
-                    <div class="form-group">
-                        <input ng-model="query.location" type="text" class="form-control" id="restaurant-location" placeholder="Search by Location">
-                    </div>
-                    <div class="form-group">
-                        <input ng-model="query.price" type="text" class="form-control" id="restaurant-price" placeholder="Search by Price">
-                    </div>
+
+                    <select class="form-control" ng-model="query.food">
+                        <option value="">Select cuisine</label>
+                        <option value="Italian">Italian</option>
+                        <option value="Mexican">Mexican</option>
+                        <option value="Thai">Thai</option>
+                        <option value="Chinese">Chinese</option>
+                        <option value="American">American</option>
+                        <option value="Greek">Greek</option>
+                    </select>
+
+                    <select class="form-control" ng-model="query.location">
+                        <option value="">Select location</label>
+                        <option value="North">North</option>
+                        <option value="Northeast">Northeast</option>
+                        <option value="Southeast">Southeast</option>
+                        <option value="Southwest">Southwest</option>
+                        <option value="Northwest">Northwest</option>
+                    </select>
+
+                    <select class="form-control" ng-model="query.price">
+                        <option value="">Select price</label>
+                        <option value="$">$</option>
+                        <option value="$$">$$</option>
+                        <option value="$$$">$$$</option>
+                        <option value="$$$$">$$$$</option>
+                        <option value="$$$$$">$$$$$</option>
+                    </select>
                 </form>
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-12">
                 <h2 ng-show="restaurants.length && filtered.length">Restaurants List</h2>
@@ -63,6 +84,7 @@
                 </ul>
             </div>
         </div>
+
         <div class="row">
             <div class="col-xs-6 col-sm-5 col-md-4">
                 <h2>New Restaurant</h2>
@@ -70,32 +92,34 @@
                     <div class="form-group">
                         <input type="text" ng-model="restaurantName" class="form-control" placeholder="Enter name">
                     </div>
-                    <div class="form-group">
-                        <input type="text" ng-model="restaurantFood" class="form-control" placeholder="Enter cuisine type">
-                    </div>
 
-                    <!-- <div class="form-group">
-                        <label class="checkbox-inline">
-                            <input type="checkbox" name="italian" ng-model="restaurantFood.italian"> Italian
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" ng-model="restaurantFood.mexican"> Mexican
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" ng-model="restaurantFood.thai"> Thai
-                        </label>
-                        <label class="checkbox-inline">
-                            <input type="checkbox" ng-model="restaurantFood.chinese"> Chinese
-                        </label>
-                    </div> -->
+                    <select class="form-control" ng-model="restaurantFood">
+                        <option value="">Select cuisine</label>
+                        <option value="Italian">Italian</option>
+                        <option value="Mexican">Mexican</option>
+                        <option value="Thai">Thai</option>
+                        <option value="Chinese">Chinese</option>
+                        <option value="American">American</option>
+                        <option value="Greek">Greek</option>
+                    </select>
 
-                    <div class="form-group">
-                        <input type="text" ng-model="restaurantLocation" class="form-control" placeholder="Enter location">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" ng-model="restaurantPrice" class="form-control" placeholder="Enter  price range">
-                    </div>
+                    <select class="form-control" ng-model="restaurantLocation">
+                        <option value="">Select location</label>
+                        <option value="North">North</option>
+                        <option value="Northeast">Northeast</option>
+                        <option value="Southeast">Southeast</option>
+                        <option value="Southwest">Southwest</option>
+                        <option value="Northwest">Northwest</option>
+                    </select>
 
+                    <select class="form-control" ng-model="restaurantPrice">
+                        <option value="">Select price</label>
+                        <option value="$">$</option>
+                        <option value="$$">$$</option>
+                        <option value="$$$">$$$</option>
+                        <option value="$$$$">$$$$</option>
+                        <option value="$$$$$">$$$$$</option>
+                    </select>
 
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
