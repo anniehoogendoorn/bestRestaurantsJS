@@ -18,8 +18,19 @@
                 <h4>Search Restaurants</h4>
                 <form class="form-inline" role="form">
                     <div class="form-group">
-                        <input ng-model="query" type="text" class="form-control" id="restaurant-name" placeholder="Search">
-
+                        <input ng-model="query.$" type="text" class="form-control" id="restaurant" placeholder="Search All">
+                    </div>
+                    <div class="form-group">
+                        <input ng-model="query.name" type="text" class="form-control" id="restaurant-name" placeholder="Search by Name">
+                    </div>
+                    <div class="form-group">
+                        <input ng-model="query.food" type="text" class="form-control" id="restaurant-food" placeholder="Search by Cuisine">
+                    </div>
+                    <div class="form-group">
+                        <input ng-model="query.location" type="text" class="form-control" id="restaurant-location" placeholder="Search by Location">
+                    </div>
+                    <div class="form-group">
+                        <input ng-model="query.price" type="text" class="form-control" id="restaurant-price" placeholder="Search by Price">
                     </div>
                 </form>
             </div>
@@ -60,8 +71,24 @@
                         <input type="text" ng-model="restaurantName" class="form-control" placeholder="Enter name">
                     </div>
                     <div class="form-group">
-                        <input type="text" ng-model="restaurantFood" class="form-control" placeholder="Enter cuisine">
+                        <input type="text" ng-model="restaurantFood" class="form-control" placeholder="Enter cuisine type">
                     </div>
+
+                    <!-- <div class="form-group">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="italian" ng-model="restaurantFood.italian"> Italian
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" ng-model="restaurantFood.mexican"> Mexican
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" ng-model="restaurantFood.thai"> Thai
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" ng-model="restaurantFood.chinese"> Chinese
+                        </label>
+                    </div> -->
+
                     <div class="form-group">
                         <input type="text" ng-model="restaurantLocation" class="form-control" placeholder="Enter location">
                     </div>

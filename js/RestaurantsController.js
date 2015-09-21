@@ -1,5 +1,9 @@
 bestRestaurant.controller('RestaurantsCtrl', function RestaurantsCtrl($scope) {
     $scope.restaurants = [];
+    // $scope.restaurantFood = [
+    //     { food: "italian" },
+    //     { food: "chinese"}
+    // ];
 
     //restaurantName is defined in the html ng-model directive.
     //After the restaurantName is added to the array, we clear it so it doesn't get added twice
