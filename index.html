@@ -1,24 +1,24 @@
 <!doctype html>
-<html ng-app="studentRoster">
+<html ng-app="bestRestaurant">
 
 <head>
-    <title>Student App</title>
+    <title>Restaurants App</title>
     <script src="lib/angular.js"></script>
     <script src ="app.js"></script>
-    <script src="js/StudentsController.js"></script>
+    <script src="js/RestaurantsController.js"></script>
     <script src="js/jquery-1.11.3.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-    <div class="container" ng-controller="Ω ">
-        <div class="row" ng-show="students.length">
+    <div class="container" ng-controller="RestaurantsCtrl">
+        <div class="row" ng-show="restaurants.length">
             <div class="col-md-12">
-                <h4>Search Students</h4>
+                <h4>Search Restaurants</h4>
                 <form class="form-inline" role="form">
                     <div class="form-group">
-                        <input ng-model="query" type="text" class="form-control" id="student-name" placeholder="Search">
+                        <input ng-model="query" type="text" class="form-control" id="restaurant-name" placeholder="Search">
 
                     </div>
                 </form>
@@ -26,16 +26,25 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <h2 ng-show="students.length && filtered.length">Student List</h2>
-                <h2 ng-show="students.length && !filtered.length">No matches</h2>
+                <h2 ng-show="restaurants.length && filtered.length">Restaurants List</h2>
+                <h2 ng-show="restaurants.length && !filtered.length">No matches</h2>
                 <ul>
-                    <li ng-repeat="item in filtered = (students | filter:query)">
+                    <li ng-repeat="item in filtered = (restaurants | filter:query)">
                         <span ng-click="editing = true" ng-hide="editing">
-                            {{item.name}} <a ng-click="deleteStudent(item)">Delete</a>
+                            {{item.name}} <a ng-click="deleteRestaurant(item)">Delete</a>
+                            <ul>
+                                <li>Cuisine: {{ item.food }}</li>
+                                <li>Location: {{ item.location }}</li>
+                                <li>Price Range: {{ item.price }}</li>
+                            </ul>
                         </span>
                         <span class="form-group" ng-show="editing" ng-submit="editing = false">
                             <form class="form-inline" role="form">
                                 <input type="text" class="form-control input-sm" ng-model="item.name" placeholder="Name" required>
+                                <input type="text" class="form-control input-sm" ng-model="item.food" placeholder="Cuisine" required>
+                                <input type="text" class="form-control input-sm" ng-model="item.location" placeholder="Location" required>
+                                <input type="text" class="form-control input-sm" ng-model="item.price" placeholder="Price" required>
+
                                 <button class="btn btn-default btn-sm" type="submit">Save</button>
                             </form>
                         </span>
@@ -44,12 +53,23 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                <h2>New Student</h2>
-                <form ng-submit="addStudent()" class="form-inline" role="form">
+            <div class="col-xs-6 col-sm-5 col-md-4">
+                <h2>New Restaurant</h2>
+                <form ng-submit="addRestaurant()" role="form">
                     <div class="form-group">
-                        <input type="text" ng-model="studentName" class="form-control" placeholder="Enter name">
+                        <input type="text" ng-model="restaurantName" class="form-control" placeholder="Enter name">
                     </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="restaurantFood" class="form-control" placeholder="Enter cuisine">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="restaurantLocation" class="form-control" placeholder="Enter location">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="restaurantPrice" class="form-control" placeholder="Enter  price range">
+                    </div>
+
+
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
             </div>
